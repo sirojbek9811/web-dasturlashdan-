@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style>
+        .note
+        {
+            text-align: center;
+            height: 80px;
+            background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+            color: #fff;
+            font-weight: bold;
+            line-height: 80px;
+        }
+        .form-content
+        {
+            padding: 5%;
+            border: 1px solid #ced4da;
+            margin-bottom: 2%;
+        }
+        .form-control{
+            border-radius:1.5rem;
+        }
+        .btnSubmit
+        {
+            border:none;
+            border-radius:1.5rem;
+            padding: 1%;
+            width: 20%;
+            cursor: pointer;
+            background: #0062cc;
+            color: #fff;
+        }
+    </style>
+
+    <h1 class="text-center">Login</h1><br>
+    <div class="container register-form">
+            <div class="form">
+                <div class="form-content">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6 m-auto">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Your Phone Number" name="phone_number" value=""/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Your Password" name="password" value=""/>
+                                </div>
+                                <button type="submit" class="btnSubmit m-auto" >Submit</button>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+    
+{% endblock %}

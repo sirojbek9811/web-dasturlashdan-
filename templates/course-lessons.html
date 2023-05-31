@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+ <!-- Detail Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="mb-5">
+                        <div class="section-title position-relative mb-5">
+                            <h6 class="d-inline-block position-relative text-secondary text-uppercase pb-2">{{ course.title }}</h6>
+                            <h2 class="display-4">{{ lesson.title }}</h2>
+                        </div>
+                        {% if lesson.source %}
+                        <div>
+                            <iframe width="100%" height="420"
+                            src="{{ lesson.source }}">
+                            </iframe>
+                        </div>
+<!--                        <div class="embed-responsive embed-responsive-16by9">-->
+<!--&lt;!&ndash;                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <iframe class="embed-responsive-item" src="{{ lesson.source }}" allowfullscreen></iframe>&ndash;&gt;-->
+<!--                            <source src="{{ lesson.source }}" type="video/mp4">-->
+<!--                        </div>-->
+                        <br>
+                        {% elif lesson.photo %}
+                        <img class="img-fluid rounded w-100 mb-4" src="{{ course.photo.url }}" alt="Image">
+                        <br>
+                        {% endif %}
+                        <p>{{ lesson.text }}</p>
+                    </div>
+               </div>
+
+                <div class="col-lg-4 mt-5 mt-lg-0">
+                    <div class="mb-5 py-3">
+                        <h3 class="py-3 px-4 m-0">Course Lessons</h3>
+                        {% for obj in lessons %}
+                            <div class="border-bottom p-3" style="font-size: 1.2rem; color: black">
+                                <a href="/course-lessons/{{ course.pk }}/?lesson={{ obj.pk }}">
+                                    <span class="pr-3">{{ obj.number }}</span>
+                                <span>{{ obj.title }}</span>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+
+<!--                    <div class="mb-5">-->
+<!--                        <h2 class="mb-4">Recent Courses</h2>-->
+<!--                        <a class="d-flex align-items-center text-decoration-none mb-4" href="">-->
+<!--                            <img class="img-fluid rounded" src="img/courses-80x80.jpg" alt="">-->
+<!--                            <div class="pl-3">-->
+<!--                                <h6>Web design & development courses for beginners</h6>-->
+<!--                                <div class="d-flex">-->
+<!--                                    <small class="text-body mr-3"><i class="fa fa-user text-primary mr-2"></i>Jhon Doe</small>-->
+<!--                                    <small class="text-body"><i class="fa fa-star text-primary mr-2"></i>4.5 (250)</small>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                        <a class="d-flex align-items-center text-decoration-none mb-4" href="">-->
+<!--                            <img class="img-fluid rounded" src="img/courses-80x80.jpg" alt="">-->
+<!--                            <div class="pl-3">-->
+<!--                                <h6>Web design & development courses for beginners</h6>-->
+<!--                                <div class="d-flex">-->
+<!--                                    <small class="text-body mr-3"><i class="fa fa-user text-primary mr-2"></i>Jhon Doe</small>-->
+<!--                                    <small class="text-body"><i class="fa fa-star text-primary mr-2"></i>4.5 (250)</small>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                        <a class="d-flex align-items-center text-decoration-none mb-4" href="">-->
+<!--                            <img class="img-fluid rounded" src="img/courses-80x80.jpg" alt="">-->
+<!--                            <div class="pl-3">-->
+<!--                                <h6>Web design & development courses for beginners</h6>-->
+<!--                                <div class="d-flex">-->
+<!--                                    <small class="text-body mr-3"><i class="fa fa-user text-primary mr-2"></i>Jhon Doe</small>-->
+<!--                                    <small class="text-body"><i class="fa fa-star text-primary mr-2"></i>4.5 (250)</small>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                        <a class="d-flex align-items-center text-decoration-none" href="">-->
+<!--                            <img class="img-fluid rounded" src="img/courses-80x80.jpg" alt="">-->
+<!--                            <div class="pl-3">-->
+<!--                                <h6>Web design & development courses for beginners</h6>-->
+<!--                                <div class="d-flex">-->
+<!--                                    <small class="text-body mr-3"><i class="fa fa-user text-primary mr-2"></i>Jhon Doe</small>-->
+<!--                                    <small class="text-body"><i class="fa fa-star text-primary mr-2"></i>4.5 (250)</small>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Detail End -->
+
+
+{% endblock content %}
+
+
+
+
+
+
